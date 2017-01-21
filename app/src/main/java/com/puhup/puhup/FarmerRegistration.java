@@ -1,5 +1,6 @@
 package com.puhup.puhup;
 
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,7 +22,7 @@ import android.widget.TextView;
 
 import com.puhup.puhup.bean.Farmer;
 
-public class FarmerRegistration extends AppCompatActivity {
+public class FarmerRegistration extends AppCompatActivity implements OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -96,6 +97,11 @@ public class FarmerRegistration extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -108,19 +114,6 @@ public class FarmerRegistration extends AppCompatActivity {
 
         public PlaceholderFragment() {
         }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -158,7 +151,22 @@ public class FarmerRegistration extends AppCompatActivity {
             public Fragment getItem(int position) {
                 // getItem is called to instantiate the fragment for the given page.
                 // Return a PlaceholderFragment (defined as a static inner class below).
-                return PlaceholderFragment.newInstance(position + 1);
+                switch (position){
+                case 0:
+                    FarmerRegPage1 farmerRegPage1 = new FarmerRegPage1();
+                    return farmerRegPage1;
+
+                case 1:
+                    FarmerRegPage2 farmerRegPage2 = new FarmerRegPage2();
+                    return farmerRegPage2;
+
+                case 2:
+                FarmerRegPage3 farmerRegPage3 = new FarmerRegPage3();
+                    return farmerRegPage3;
+
+                default:
+                    return null;
+                }
             }
 
             @Override

@@ -1,14 +1,15 @@
 package com.puhup.puhup;
 
+import android.support.v4.app.DialogFragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.AppCompatButton;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,18 +20,18 @@ import com.puhup.puhup.bean.Farmer;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FarmerRegPage1.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link FarmerRegPage1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FarmerRegPage1 extends Fragment {
+public class FarmerRegPage1 extends Fragment  implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button btn_register;
-    private EditText et_email, et_password, your_full_name;
+    private AppCompatButton btn_register;
+    private EditText et_email,et_password,et_name,dob;
     private TextView tv_login;
     private ProgressBar progress;
     private Farmer farmer;
@@ -76,9 +77,18 @@ public class FarmerRegPage1 extends Fragment {
 
     private void initViews(View view) {
 
-        your_full_name = (EditText) view.findViewById(R.id.your_full_name);
-        et_email = (EditText) view.findViewById(R.id.your_email_address);
-        et_password = (EditText) view.findViewById(R.id.create_new_password);
+        btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
+        tv_login = (TextView)view.findViewById(R.id.tv_login);
+        et_name = (EditText)view.findViewById(R.id.et_firstName);
+        et_email = (EditText)view.findViewById(R.id.et_email);
+        et_password = (EditText)view.findViewById(R.id.et_password);
+        dob = (EditText)view.findViewById(R.id.dob);
+
+        progress = (ProgressBar)view.findViewById(R.id.progress);
+
+        btn_register.setOnClickListener(this);
+        tv_login.setOnClickListener(this);
+        dob.setOnClickListener(this);
 
     }
 
@@ -88,18 +98,50 @@ public class FarmerRegPage1 extends Fragment {
         // Inflate the layout for this fragment
         //String sharedStringInFragment1= ((FarmerRegistration) getActivity()).getShareString();
         View view = inflater.inflate(R.layout.fragment_farmer_reg_page1, container, false);
-        btn_register = (Button) view.findViewById(R.id.singn_up); // you have to use rootview object..
-        btn_register.setOnClickListener(new View.OnClickListener() {
+       /* btn_register.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v)
             {
                 farmer = ((FarmerRegistration) getActivity()).getFarmer();
                // farmer.setFirstName(your_full_name.toString());            }
-        }});
+        }});*/
 
         initViews(view);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.tv_login:
+                //goToLogin();
+                break;
+
+            case R.id.btn_register:
+
+                String name = et_name.getText().toString();
+                String email = et_email.getText().toString();
+                String password = et_password.getText().toString();
+
+                if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+
+                    progress.setVisibility(View.VISIBLE);
+                  //  registerProcess(name,email,password);
+
+                } else {
+
+                    Snackbar.make(getView(), "Fields are empty !", Snackbar.LENGTH_LONG).show();
+                }
+                break;
+            case R.id.dob:
+                DialogFragment newFragment = new SelectDateFragment();
+                ((SelectDateFragment)newFragment).setFragment(this);
+                newFragment.show(getFragmentManager(), "DatePicker");
+                break;
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -126,18 +168,6 @@ public class FarmerRegPage1 extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
+
 }

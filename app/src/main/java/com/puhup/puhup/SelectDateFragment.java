@@ -2,8 +2,8 @@ package com.puhup.puhup;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.Fragment;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.widget.DatePicker;
 import android.widget.EditText;

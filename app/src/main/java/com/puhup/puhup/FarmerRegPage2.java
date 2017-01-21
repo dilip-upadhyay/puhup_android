@@ -1,11 +1,11 @@
 package com.puhup.puhup;
 
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +18,12 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FarmerRegPage2.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link FarmerRegPage2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FarmerRegPage2 extends Fragment implements View.OnClickListener{
+public class FarmerRegPage2 extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -94,12 +94,13 @@ public class FarmerRegPage2 extends Fragment implements View.OnClickListener{
         tv_login.setOnClickListener(this);
         dob.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_login:
-               //goToLogin();
+                //goToLogin();
                 break;
 
             case R.id.btn_register:
@@ -108,10 +109,10 @@ public class FarmerRegPage2 extends Fragment implements View.OnClickListener{
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
 
-                if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
-                   //registerProcess(name,email,password);
+                    //registerProcess(name,email,password);
 
                 } else {
 
@@ -120,8 +121,8 @@ public class FarmerRegPage2 extends Fragment implements View.OnClickListener{
                 break;
             case R.id.dob:
                 DialogFragment newFragment = new SelectDateFragment();
-                ((SelectDateFragment)newFragment).setFragment(this);
-                newFragment.show(getFragmentManager(),"DatePicker");
+                ((SelectDateFragment) newFragment).setFragment(this);
+                newFragment.show(getFragmentManager(), "DatePicker");
                 break;
         }
 
@@ -151,18 +152,5 @@ public class FarmerRegPage2 extends Fragment implements View.OnClickListener{
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }
