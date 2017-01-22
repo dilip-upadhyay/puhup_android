@@ -8,5 +8,38 @@
     <string name="hello_blank_fragment1">Hello blank fragment 1</string>
     <string name="hello_blank_fragment2">Hello blank fragment 2</string>
     <string name="hello_blank_fragment3">Hello blank fragment 3</string>
+    <string name="title_activity_login">Sign in</string>
 
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="spinner_title">drop down</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="title_activity_file_upload">FileUpload</string>
+    <string name="title_activity_file_upload_advanced">FileUploadAdvancedActivity</string>
+    <string name="title_activity_photo_intent">PhotoIntentActivity</string>
+    <string name="hello">Hello World, PhotoIntentActivity!</string>
+
+    <string name="btnIntend">Take (big) Picture</string>
+    <string name="btnIntendS">Take (small) Picture</string>
+    <string name="btnIntendV">Take Video</string>
+    <string name="cannot">Cannot</string>
+    <string name="album_name">CameraSample</string>
 </resources>

@@ -32,7 +32,6 @@ public class FarmerRegPage1 extends Fragment  implements View.OnClickListener{
     private static final String ARG_PARAM2 = "param2";
     private AppCompatButton btn_register;
     private EditText et_email,et_password,et_name,dob;
-    private TextView tv_login;
     private ProgressBar progress;
     private Farmer farmer;
 
@@ -78,7 +77,6 @@ public class FarmerRegPage1 extends Fragment  implements View.OnClickListener{
     private void initViews(View view) {
 
         btn_register = (AppCompatButton)view.findViewById(R.id.btn_register);
-        tv_login = (TextView)view.findViewById(R.id.tv_login);
         et_name = (EditText)view.findViewById(R.id.et_firstName);
         et_email = (EditText)view.findViewById(R.id.et_email);
         et_password = (EditText)view.findViewById(R.id.et_password);
@@ -87,7 +85,6 @@ public class FarmerRegPage1 extends Fragment  implements View.OnClickListener{
         progress = (ProgressBar)view.findViewById(R.id.progress);
 
         btn_register.setOnClickListener(this);
-        tv_login.setOnClickListener(this);
         dob.setOnClickListener(this);
 
     }
@@ -115,10 +112,6 @@ public class FarmerRegPage1 extends Fragment  implements View.OnClickListener{
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.tv_login:
-                //goToLogin();
-                break;
-
             case R.id.btn_register:
 
                 String name = et_name.getText().toString();

@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.puhup.puhup">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +20,34 @@
         <activity
             android:name=".FarmerRegistration"
             android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.puhup.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name="com.puhup.login.AndroidSpinnerExampleActivity" />
+        <activity
+            android:name="com.puhup.FileUpload"
+            android:label="@string/title_activity_file_upload"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name="com.puhup.fileupload.FileUploadAdvancedActivity"
+            android:label="@string/title_activity_file_upload_advanced"
+            android:parentActivityName="com.puhup.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.puhup.login.LoginActivity" />
+        </activity>
+        <activity
+            android:name="com.puhup.fileupload.PhotoIntentActivity"
+            android:label="@string/title_activity_photo_intent"
+            android:parentActivityName="com.puhup.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.puhup.login.LoginActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

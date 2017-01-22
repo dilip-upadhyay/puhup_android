@@ -6,29 +6,17 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.puhup.puhup.">
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:text="KYC Details"
-        android:textSize="22sp"
-        android:textAlignment="center"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    tools:context="com.puhup.puhup.FarmerRegPage1">
 
     <android.support.design.widget.TextInputLayout
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
         android:layout_marginBottom="8dp"
+        android:textSize="10sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="ID Type"
+            android:hint="First Name"
             android:id="@+id/et_firstName"
             android:drawableRight="@drawable/ic_person"
             android:inputType="textPersonName"
@@ -123,14 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/tv_login"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/colorAccent"
-        android:text="Already Registered ? Login Now !"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+   
     <ProgressBar
         style="@style/Base.Widget.AppCompat.ProgressBar"
         android:id="@+id/progress"

@@ -119,21 +119,7 @@ public class FarmerRegistration extends AppCompatActivity implements OnFragmentI
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            View rootView;
-            if (getArguments().getInt(ARG_SECTION_NUMBER) == 1) {
-                rootView = inflater.inflate(R.layout.fragment_farmer_reg_page1, container, false);
-            } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 2) {
-                rootView = inflater.inflate(R.layout.fragment_farmer_reg_page2, container, false);
-            } else if (getArguments().getInt(ARG_SECTION_NUMBER) == 3) {
-                rootView = inflater.inflate(R.layout.fragment_farmer_reg_page3, container, false);
-            } else {
-                rootView = inflater.inflate(R.layout.fragment_farmer_registration, container, false);
-                TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
-            }
-            return rootView;
-
+            return null;
         }
     }
 
@@ -179,7 +165,7 @@ public class FarmerRegistration extends AppCompatActivity implements OnFragmentI
             public CharSequence getPageTitle(int position) {
                 switch (position) {
                     case 0:
-                        return "SECTION 1";
+                        return "Basic Details";
                     case 1:
                         return "SECTION 2";
                     case 2:
