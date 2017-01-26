@@ -20,16 +20,22 @@
         <activity
             android:name=".FarmerRegistration"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name="com.puhup.login.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login" >
+        </activity>
         <activity android:name="com.puhup.login.AndroidSpinnerExampleActivity" />
         <activity
             android:name="com.puhup.FileUpload"
             android:label="@string/title_activity_file_upload"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.puhup.fileupload.FileUploadAdvancedActivity"
@@ -39,6 +45,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.puhup.login.LoginActivity" />
+
         </activity>
         <activity
             android:name="com.puhup.fileupload.PhotoIntentActivity"
@@ -48,12 +55,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.puhup.login.LoginActivity" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
-
 </manifest>
